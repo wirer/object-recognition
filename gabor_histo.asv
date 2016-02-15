@@ -45,7 +45,7 @@ end
 %calculate histograms
 %for each orientation save the number of pixels that have maximum intensity
 %at that orientation
-airplane_histograms = zeros(image_count, num_angles);
+airplane_histograms = zeros(num_angles,image_count);
 car_histograms = zeros(image_count, num_angles);
 airplane_energies = zeros(rows, cols, num_angles,'uint8');
 car_energies = zeros(rows, cols, num_angles,'uint8');
@@ -87,3 +87,6 @@ for j=1:image_count
         end
     end
 end
+
+%reshape histograms into 50vectors (for adaboost?)
+test = reshape(airplane_histograms(1),50,1);
